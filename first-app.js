@@ -1,3 +1,7 @@
-const fs = require('fs')
+const http = require('http')
 
-fs.writeFileSync('hello.txt', 'hello world') 
+const server = http.createServer((req, res) =>{
+    console.log(req)
+})
+
+server.listen(4000)
