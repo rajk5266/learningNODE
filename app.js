@@ -3,7 +3,7 @@ const routes = require('./routes.js');
 
 // const server = http.createServer(routes)
 const server = http.createServer(routes.handler)
-
+console.log(routes.sometext)
 server.listen(4000, () => {
   console.log('Server is running on port 4000');
 });
