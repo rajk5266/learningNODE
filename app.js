@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error.js')
 
-const db = require('./util/database.js')
+const sequelize = require('./util/database.js')
 
 const app = express()
 
@@ -25,5 +25,12 @@ app.use('/admin' , contactRoutes)
 app.use('/admin',SUCCESSroutes)
 app.use(errorController.get404)
 
+sequelize
+ .sync( )
+ .then(result => {
+    // console.log(result)
+    app.listen(4000) 
+     })
+ .catch(err => console.log(err))
 
-app.listen(4000)
+
